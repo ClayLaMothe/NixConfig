@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -101,7 +101,7 @@
   programs.bash.shellAliases = {
     ls = "ls -lha";
     nrb = "sudo nixos-rebuild switch";
-    ncf = "sudo nano /etc/nixos/configuration.nix";
+    ncf = "sudo nano /home/clay/.dotfiles/configuration.nix";
   };
  
   # mlocate / plocate
