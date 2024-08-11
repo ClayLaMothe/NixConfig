@@ -23,7 +23,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true; # Easiest to use. Most distros use by default.
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -52,13 +52,22 @@
   # Enable the X11 windowing system
   services.xserver.enable = true;
 
+  
+  services.xserver.displayManager = {
+    lightdm.enable = true;
+    autoLogin = {
+      enable = true;
+      user = "clay";
+    };
+  };
+
   #Enable the LXQT Desktop Environment
-  services.xserver.displayManager.lightdm.enable = true;
-  #services.xserver.desktopManager.lxqt.enable = true;
+#  services.xserver.desktopManager.lxqt.enable = true;
   
   # Enable i3 window manager
   services.xserver.windowManager = {
     i3.enable = true;
+#    dwm.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
